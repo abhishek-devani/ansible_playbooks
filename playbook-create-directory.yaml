@@ -1,0 +1,11 @@
+-
+  name: Create Directory
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create Directory
+      file:
+        path: /home/ubuntu/demo
+        state: directory
+        mode: '0755'
