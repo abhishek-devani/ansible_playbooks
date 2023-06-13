@@ -1,0 +1,21 @@
+- name: python installation
+  hosts: all
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Install prerequisites
+      apt: name=software-properties-common state=present
+
+    - name: Add deadsnakes repo
+      apt_repository: repo="ppa:deadsnakes/ppa"
+
+    - name: Install python
+      apt: name="python" state=present
+
+    - name: Check if python is already latest
+      command: python --version
+      register: python_version
+
+    - name: debug
+      debug:
+        msg: "Python version: {{ python_version.stdout }}"

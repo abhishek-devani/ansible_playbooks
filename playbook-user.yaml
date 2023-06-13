@@ -1,0 +1,10 @@
+-
+  name: "user creation"
+  hosts: all
+  become: yes
+  tasks:
+    - name: "user"
+      ansible.builtin.user:
+        name: tmp
+        group: root
+        password: password_hash('AD@gslab')
