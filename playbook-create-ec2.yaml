@@ -3,9 +3,6 @@
   hosts: localhost
   gather_facts: false
 
-  vars:
-    my_creds: " {{ lookup('ansible_tower', 'abhishek_tower_user') }}"
-
   tasks:
     - name: Create EC2 Instance
       ec2:
@@ -13,8 +10,8 @@
         region: us-east-1
         instance_type: t2.micro
         image: ami-053b0d53c279acc90
-        access_key: "{{ my_creds.username }}"
-        secret_key: "{{ my_creds.password }}"
+        access_key: "{{ tower_abhishek_tower_user.username }}"
+        secret_key: "{{ tower_abhishek_tower_user.password }}"
         # subnet_id: subnet-12345678
         security_group_ids:
           - sg-07951cffdd62f5a9b
