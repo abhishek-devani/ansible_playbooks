@@ -1,21 +1,20 @@
 ---
 - name: Deploy EC2 Instance
-  hosts: localhost
+  hosts: all
   gather_facts: false
 
   tasks:
     - name: Create EC2 Instance
-      ec2_instance:
+      ec2:
+        key_name: tower
         instance_type: t2.micro
         image: ami-053b0d53c279acc90
+        access_key: "{{ lookup('ansible Tower', 'abhishek_tower_user', 'username') }}"
+        secret_key: "{{ lookup('ansible Tower', 'abhishek_tower_user', 'password') }}"
         # subnet_id: subnet-12345678
         security_group_ids:
           - sg-07951cffdd62f5a9b
+        count: 1
         region: us-east-1
         assign_public_ip: yes
         wait: true
-      register: ec2_instance
-
-    - name: Display EC2 Instance IP address
-      debug:
-        msg: "The EC2 Instance IP address is {{ ec2_instance.instances[0].public_ip_address }}"
