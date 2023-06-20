@@ -13,8 +13,8 @@
         region: us-east-1
         instance_type: t2.micro
         image: ami-053b0d53c279acc90
-        access_key: "{{ my_creds.access_key }}"
-        secret_key: "{{ my_creds.secret_key }}"
+        access_key: "{{ my_creds.username }}"
+        secret_key: "{{ my_creds.password }}"
         # subnet_id: subnet-12345678
         security_group_ids:
           - sg-07951cffdd62f5a9b
