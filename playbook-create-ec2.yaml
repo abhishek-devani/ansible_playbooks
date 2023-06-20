@@ -5,7 +5,7 @@
 
   tasks:
     - name: Create EC2 Instance
-      aws_ec2:
+      ec2:
         key_name: tower
         region: us-east-1
         instance_type: t2.micro
