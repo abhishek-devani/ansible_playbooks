@@ -12,7 +12,7 @@
         image: ami-053b0d53c279acc90
         access_key: "{{ my_access_key }}"
         secret_key: "{{ my_secret_key }}"
-        # subnet_id: subnet-12345678
+        vpc_subnet_id: vpc-028559ae51e2bbc8d
         group_id: sg-07951cffdd62f5a9b
         count: 1
         assign_public_ip: yes
