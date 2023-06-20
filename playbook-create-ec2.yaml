@@ -1,6 +1,6 @@
 ---
 - name: Deploy EC2 Instance
-  hosts: all
+  hosts: localhost
   gather_facts: false
 
   tasks:
@@ -9,8 +9,8 @@
         key_name: tower
         instance_type: t2.micro
         image: ami-053b0d53c279acc90
-        access_key: "{{ lookup('ansible Tower', 'abhishek_tower_user', 'username') }}"
-        secret_key: "{{ lookup('ansible Tower', 'abhishek_tower_user', 'password') }}"
+        access_key: ""
+        secret_key: ""
         # subnet_id: subnet-12345678
         security_group_ids:
           - sg-07951cffdd62f5a9b
