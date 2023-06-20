@@ -13,7 +13,7 @@
         access_key: "{{ my_access_key }}"
         secret_key: "{{ my_secret_key }}"
         # subnet_id: subnet-12345678
-        group: sg-07951cffdd62f5a9b
+        group_id: sg-07951cffdd62f5a9b
         count: 1
         assign_public_ip: yes
         wait: true
