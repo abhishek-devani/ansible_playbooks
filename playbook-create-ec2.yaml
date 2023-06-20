@@ -5,7 +5,7 @@
 
   tasks:
     - name: Create EC2 Instance
-      ec2:
+      aws_ec2:
         key_name: tower
         region: us-east-1
         instance_type: t2.micro
@@ -13,8 +13,7 @@
         access_key: "{{ my_access_key }}"
         secret_key: "{{ my_secret_key }}"
         # subnet_id: subnet-12345678
-        security_group_ids:
-          - sg-07951cffdd62f5a9b
+        group: sg-07951cffdd62f5a9b
         count: 1
         assign_public_ip: yes
         wait: true
